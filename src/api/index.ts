@@ -13,3 +13,9 @@ export const register = (params: {
     url: '/users',
     data: params,
 })
+
+export const getUser = (): Promise<{data: {user: UserInfo}}> => 
+request({
+    method: 'GET',
+    url: '/user',
+})
