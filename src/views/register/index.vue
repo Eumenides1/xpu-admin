@@ -14,6 +14,9 @@
             <el-form-item label>
                 <el-button type="primary" @click="doReg">注册</el-button>
             </el-form-item>
+            <div>
+                <router-link to="/login">已有账号？去登录</router-link>
+            </div>
         </el-form>
     </div>
 </template>

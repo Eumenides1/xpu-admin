@@ -28,3 +28,11 @@ export const updateUser = (params: {
     url: '/user',
     data: params
 })
+
+export const login = (params: {
+    user: User
+}): Promise<{data: {user: UserInfo}}> => request({
+    method: 'POST',
+    url: '/users/login',
+    data: params
+})

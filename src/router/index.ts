@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Layout from '@/layout/index.vue'
 import component from 'element-plus/es/components/tree-select/src/tree-select-option.mjs'
+import { useUserStore } from '@/store/user'
 
 const routes = [
   {
@@ -63,6 +64,11 @@ const routes = [
     path: '/register',
     name: 'register',
     component: () => import("@/views/register/index.vue")
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import("@/views/login/index.vue")
   }
 ]
 
@@ -71,5 +77,14 @@ const router = createRouter({
   routes
 })
 
+router.beforeEach((to) => {
+  const useStore = useUserStore();
+  const { isLoggedIn } = useStore;
+  if (to.meta.requiresAuth && !isLoggedIn) {
+    return {
+      name: 'login'
+    }
+  }
+})
 
 export default router
