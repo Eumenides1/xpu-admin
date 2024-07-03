@@ -1,5 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Layout from '@/layout/index.vue'
+import component from 'element-plus/es/components/tree-select/src/tree-select-option.mjs'
 
 const routes = [
   {
@@ -34,6 +35,25 @@ const routes = [
               icon: 'document-checked'
             },
             component: () => import('@/views/articles/MyArticles.vue')
+          }
+        ]
+      },
+      {
+        path: 'personal',
+        name: '个人设置',
+        meta: {
+          requiresAuth: true,
+          icon: 'collection'
+        },
+        children: [
+          {
+            path: '/personal/me',
+            name: '个人信息',
+            meta: {
+              requiresAuth: true,
+              icon: 'collection'
+            },
+            component: () => import('@/views/personal/index.vue')
           }
         ]
       }

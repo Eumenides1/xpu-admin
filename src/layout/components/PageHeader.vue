@@ -42,6 +42,7 @@ const router = useRouter();
 const commands = ({
     toPersonal: ()=> {
         console.log('toPersonal');
+        router.push('/personal/me')
     },
     toLogout: () => {
         console.log('toLogout');
