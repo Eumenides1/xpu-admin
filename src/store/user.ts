@@ -1,6 +1,6 @@
 import type { UserInfo } from "@/types"
 import { defineStore } from "pinia"
-import {ref } from 'vue'
+import {computed, ref } from 'vue'
 import { storage } from "@/utils/storage"
 import { getUser } from "@/api"
 
@@ -8,6 +8,9 @@ const userStorage = storage('user')
 
 export const useUserStore = defineStore('user', ()=>{
     const userInfo = ref<UserInfo | null>(null);
+
+    const isLoggedIn = computed(() => !!userInfo.value)
+
     const setUser = (user: UserInfo) => {
         userInfo.value = user;
         userStorage.set(user.token)
@@ -19,9 +22,16 @@ export const useUserStore = defineStore('user', ()=>{
             setUser(res.data.user)
         }
     }
+
+    const removeUser = () => {
+        userInfo.value = null;
+        userStorage.remove()
+    }
     return {
         userInfo,
         setUser,
-        verifyAuth
+        verifyAuth,
+        removeUser,
+        isLoggedIn
     }
 })

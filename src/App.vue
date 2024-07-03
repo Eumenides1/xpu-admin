@@ -2,9 +2,20 @@
 </script>
 
 <template>
-  <router-view></router-view>
+  <div id="app">
+      <router-view></router-view>
+  </div>
 </template>
 
-<style scoped>
-
+<style>
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+}
+#app {
+  display: flex;
+  flex-direction: column;
+}
 </style>

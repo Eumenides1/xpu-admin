@@ -13,7 +13,7 @@ const routes = [
         name: '文章管理',
         meta: {
           requiresAuth: true,
-          icon: 'user'
+          icon: 'document-copy'
         },
         redirect: '/article/all',
         children: [
@@ -22,7 +22,7 @@ const routes = [
             name: '全部文章',
             meta: {
               requiresAuth: true,
-              icon: 'avatar'
+              icon: 'collection'
             },
             component: ()=> import('@/views/articles/AllArticles.vue'),
           },
@@ -31,7 +31,7 @@ const routes = [
             name: '我的文章',
             meta: {
               requiresAuth: true,
-              icon: 'avatar'
+              icon: 'document-checked'
             },
             component: () => import('@/views/articles/MyArticles.vue')
           }

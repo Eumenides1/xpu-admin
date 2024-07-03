@@ -1,6 +1,6 @@
 <template>
     <div>
-        <el-form  ref="formRef" :rules="rules" :model="user" label-width="88px">
+        <el-form  class="reg" ref="formRef" :rules="rules" :model="user" label-width="88px">
             <h2 class="title">用户注册</h2>
             <el-form-item label="用户名" prop="username">
                 <el-input v-model="user.username" placeholder="请输入用户名" prefix-icon="user"></el-input>
@@ -87,5 +87,10 @@ const doReg = async () => {
     margin-bottom: 20px;
     font-weight: bold;
 
+}
+.reg {
+    width: 480px;
+    margin: 200px auto 0;
+    text-align: center;
 }
 </style>
